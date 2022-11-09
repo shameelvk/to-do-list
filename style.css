@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: yellow;
+}
+.container{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+ul{
+    list-style: none;
+}
+.list{
+    width: 100%;
+    color: #eeeaea;
+    background: black;
+    height: 4.5vh;
+}
+input,button{
+    height: 4.5vh;
+}

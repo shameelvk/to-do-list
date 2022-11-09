@@ -8,12 +8,14 @@ function add(){
     let inputData=input.value;
     let li=document.createElement("li");
     li.textContent=inputData;
+    li.classList.add("list");
     li.style.cssText='color:red';
     lists.appendChild(li);
     input.value="";
     input.focus();
     let del=document.createElement("button");
     del.classList.add("delet");
+    del.innerText="delete";
     li.appendChild(del);
 
 }
