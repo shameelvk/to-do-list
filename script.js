@@ -33,6 +33,7 @@ function add(){
 function delet(event){
     if(event.target.classList[1]=="fa-trash"){
         let iteam=event.target.parentElement;
+        input.focus();
         iteam.remove();
     }
    
