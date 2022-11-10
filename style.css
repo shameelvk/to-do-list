@@ -68,7 +68,7 @@ body{
     color: white;
     animation: 0.3s ease-in-out;
 }
-.fa-trash{
+.fa-trash .fa-edit{
     cursor: pointer;
     background-color: white;
     padding: 6px 10px;
@@ -76,6 +76,11 @@ body{
     text-align: center;
     margin-top: 3px;
     color: #332d2d;
+
+}
+.fa-trash{
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 
