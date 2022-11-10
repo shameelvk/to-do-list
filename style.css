@@ -1,25 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
-    background-color: yellow;
-}
-.container{
-
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #000000;
+    background-image: linear-gradient(360deg, #0d0b0c00 0%, #fff423 24%);
 }
-ul{
+.container{
+    max-width: 500px;
+    margin-top: 50px;
+}
+.title{
+        text-align: center;
+        font-size: 30px;  
+}
+.todo-header{
+    margin: 30px 0 20px;
+}
+.todo-header input{
+    height: 42px;
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+}
+.todo-header button{
+    font-size: 18px;
+    height: 42px;
+    padding: 0 20px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+.todo-header button:hover{
+    background-color: rgba(0,0,0,0.8);
+
+}
+.lists{
+    text-align: left;
     list-style: none;
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
 }
-.list{
-    width: 100%;
-    color: #eeeaea;
-    background: black;
-    height: 4.5vh;
+.lists li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color :black;
+    /* background-image: linear-gradient(315deg, #ffac81 0%, #ff928b 74%); */
+    padding: 10px 15px;
+    margin: 4px 0;  
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    animation: 0.3s ease-in-out;
 }
-input,button{
-    height: 4.5vh;
+.fa-trash{
+    cursor: pointer;
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 3px;
+    color: #332d2d;
 }
+
+
+/* Animate in */
+@keyframes slideIn{
+    from{
+        opacity: 0;
+        transform: rotateX(60deg) translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform:rotateX(0deg) translateY(0px);
+    }
+}
+
+/* Animate out */
+.slideOut{
+    transform: rotateX(60deg) translateY(-10px);
+    opacity: 0;
+    transition: 1s;
+}
+

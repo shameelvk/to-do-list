@@ -9,19 +9,18 @@ function add(){
     let li=document.createElement("li");
     li.textContent=inputData;
     li.classList.add("list");
-    li.style.cssText='color:red';
     lists.appendChild(li);
     input.value="";
     input.focus();
-    let del=document.createElement("button");
-    del.classList.add("delet");
-    del.innerText="delete";
+    let del=document.createElement("i");
+    console.log(del);
+    del.classList.add("fas","fa-trash");
     li.appendChild(del);
 
 }
 
 function delet(event){
-    if(event.target.classList[0]=="delet"){
+    if(event.target.classList[0]=="fas"){
         let iteam=event.target.parentElement;
         console.log(iteam);
         iteam.remove();
@@ -30,7 +29,12 @@ function delet(event){
     
 }
 
-lists.addEventListener("click",delet)
+lists.addEventListener("click",delet);
+input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      add();
+    }
+});
 
 button.addEventListener("click",add);
 
