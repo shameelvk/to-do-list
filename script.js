@@ -2,10 +2,20 @@ let input=document.getElementById("in");
 let button=document.getElementById("btn");
 let lists=document.getElementById("list");
 
+let inputData;
+
+function setiteams(){
+    localStorage.setItem("input",inputData);
+}
+function getiteams(){
+    if(inputData= localStorage.getItem("input")){
+        buildUi();
+
+    }
+}
 
 
-function add(){
-    let inputData=input.value;
+function buildUi(){
     let li=document.createElement("li");
     let span=document.createElement("span");
     li.appendChild(span);
@@ -28,6 +38,12 @@ function add(){
     edit.classList.add("fas","fa-edit");
     li.appendChild(edit);
 
+}
+
+function add(){
+    inputData=input.value;
+    setiteams();
+    getiteams();
 }
 
 function delet(event){
@@ -69,6 +85,7 @@ input.addEventListener('keypress', function (e) {
 });
 
 button.addEventListener("click",add);
+getiteams();
 
 
 
