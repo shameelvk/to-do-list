@@ -1,14 +1,16 @@
 let input=document.getElementById("in");
-let button=document.getElementById("btn");
+let button1=document.getElementById("btn");
+let button2=document.getElementById("btn2");
 let lists=document.getElementById("list");
 
 let inputData;
-
+let inputArray=[];
 function setiteams(){
-    localStorage.setItem("input",inputData);
+    localStorage.setItem("input",JSON.stringify(inputArray));
 }
 function getiteams(){
     if(inputData= localStorage.getItem("input")){
+        inputArray=JSON.parse(localStorage.getItem("input"))
         buildUi();
 
     }
@@ -16,10 +18,12 @@ function getiteams(){
 
 
 function buildUi(){
+    lists.textContent=''; 
+    inputArray.forEach(iteam=>{
     let li=document.createElement("li");
     let span=document.createElement("span");
     li.appendChild(span);
-    span.innerText=inputData;
+    span.innerText=iteam;
     li.classList.add("list");
     lists.appendChild(li);
     input.value="";
@@ -32,16 +36,20 @@ function buildUi(){
     del.classList.add("fas","fa-trash");
     li.appendChild(del);
 
-    // edit button
+    // edit button1
     let edit=document.createElement("i");
     console.log(edit);
     edit.classList.add("fas","fa-edit");
     li.appendChild(edit);
 
+    })
+    
+
 }
 
 function add(){
     inputData=input.value;
+    inputArray.push(inputData);
     setiteams();
     getiteams();
 }
@@ -70,6 +78,12 @@ function edit(event){
        
     }  
 }
+function clearbtn(){
+    localStorage.clear();
+    inputArray=[];
+ 
+   buildUi();
+}
 
 
 
@@ -83,8 +97,8 @@ input.addEventListener('keypress', function (e) {
       add();
     }
 });
-
-button.addEventListener("click",add);
+button2.addEventListener("click",clearbtn)
+button1.addEventListener("click",add);
 getiteams();
 
 

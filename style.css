@@ -45,7 +45,8 @@ body{
 }
 
 .todo-header button:hover{
-    background-color: rgba(0,0,0,0.8);
+    background-color: white;
+    color: #000000;
 
 }
 .lists{
@@ -102,4 +103,11 @@ body{
     opacity: 0;
     transition: 1s;
 }
+
+
+@media  (max-width: 600px) {
+    .btn2 {
+      display:none;
+    }
+  }
 
