@@ -6,7 +6,7 @@ let lists=document.getElementById("list");
 let inputData;
 let inputArray=[];
 function setiteams(){
-    localStorage.setItem("input",JSON.stringify(inputArray));
+    localStorage.setItem("input",JSON.stringify(inputArray)); 
 }
 function getiteams(){
     if(inputData= localStorage.getItem("input")){
@@ -32,13 +32,13 @@ function buildUi(){
 
     // trsh
     let del=document.createElement("i");
-    console.log(del);
+    // console.log(del);
     del.classList.add("fas","fa-trash");
     li.appendChild(del);
 
     // edit button1
     let edit=document.createElement("i");
-    console.log(edit);
+    // console.log(edit);
     edit.classList.add("fas","fa-edit");
     li.appendChild(edit);
 
@@ -49,15 +49,23 @@ function buildUi(){
 
 function add(){
     inputData=input.value;
+    if(inputData!=''){
     inputArray.push(inputData);
     setiteams();
     getiteams();
+    }
 }
 
 function delet(event){
     if(event.target.classList[1]=="fa-trash"){
         let iteam=event.target.parentElement;
+        deliteam=event.target.parentElement.childNodes[0].childNodes[0].textContent;
         input.focus();
+        const index = inputArray.indexOf(`${deliteam}`);
+        if (index !== -1) {
+        inputArray.splice(index, 1);
+        localStorage.setItem("input", JSON.stringify(inputArray));
+}
         iteam.remove();
     }
    
