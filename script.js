@@ -63,7 +63,7 @@ function delet(event){
         input.focus();
         const index = inputArray.indexOf(`${deliteam}`);
         if (index !== -1) {
-        inputArray.splice(index, 1);
+        inputArray.splice(index,1);
         localStorage.setItem("input", JSON.stringify(inputArray));
 }
         iteam.remove();
@@ -79,7 +79,12 @@ function edit(event){
         input.focus();
         function del()
         { 
-            let iteam=event.target.parentElement;
+            deliteam=event.target.parentElement.childNodes[0].childNodes[0].textContent;
+            const index = inputArray.indexOf(`${deliteam}`);
+        if (index !== -1) {
+        inputArray.splice(index,1);
+        localStorage.setItem("input", JSON.stringify(inputArray));
+}
             iteam.remove();
         }
         del();
